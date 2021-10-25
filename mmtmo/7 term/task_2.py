@@ -1,6 +1,6 @@
 from itertools import chain, permutations
 
-def change_priority(priority):
+def change_priority(priority, lmbd, v, c):
     lmbd = [.2, .3, .1]
     v = [2., 1., 2.]
     c = [3., 2., 1.]
