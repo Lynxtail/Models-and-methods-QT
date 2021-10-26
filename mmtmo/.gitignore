@@ -3,6 +3,15 @@ __pycache__/
 *.py[cod]
 *$py.class
 
+masd
+techprog
+mmtmo/.idea/inspectionProfiles/profiles_settings.xml
+mmtmo/.idea/vcs.xml
+mmtmo/.idea/modules.xml
+mmtmo/.idea/mmtmo.iml
+mmtmo/.idea/misc.xml
+
+
 # C extensions
 *.so
 
