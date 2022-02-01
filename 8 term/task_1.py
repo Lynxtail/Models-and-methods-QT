@@ -48,6 +48,7 @@ alpha = lambda_ / mu
 beta = nu / mu
 
 r = get_r(alpha, beta)
+print(f'r = {r}')
 
 # а) долю времени, когда все ЭВМ свободны от проведения расчетов
 p_0 = get_p_0(k, alpha, beta, r)
