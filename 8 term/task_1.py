@@ -42,7 +42,7 @@ def get_p_ks(k, s, alpha, beta, p_0):
 lambda_ = 2.
 mu = .2
 nu = .1
-k = 8
+k = 2
 
 alpha = lambda_ / mu
 beta = nu / mu
@@ -90,7 +90,9 @@ while p_ref >= p_ref_max:
     k += 1
     p_0 = get_p_0(k, alpha, beta, r)
     b = sum([s * get_p_ks(k, s, alpha, beta, p_0) for s in range(1, r + 1)])
-    p_ref = b * (beta / alpha)
+    h = sum([n * get_p_n(n, alpha, p_0) for n in range(1, k + 1)]) + \
+    k * sum([get_p_ks(k, s, alpha, beta, p_0) for s in range(1, r + 1)])
+    p_ref = 1 - h / alpha
     print(f"\t{p_ref:.3f}\t\t\t{k}")
 
 print(f"При {k} ЭВМ вероятность отказа будет не превышать заданное значение ({p_ref_max})")
