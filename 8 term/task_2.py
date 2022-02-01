@@ -1,8 +1,9 @@
 # M/M/k/B
-# t_wait = 10
-# lambda = 2
-# mu = 0.2
+# t_wait = 1
+# lambda = 2.5*2
+# mu = 4
 # k = 2
+
 
 from math import factorial, exp
 
@@ -23,15 +24,15 @@ def prod(k, s, beta):
 
 
 def get_p_0(k, alpha, beta, r):
-    res_1 = sum([alpha ** n / ((factorial(n) * (1 + beta)**n)) for n in range(0, k + 1)])
-    res_2 = alpha ** k / ((factorial(k) * (1 + beta)**k))
+    res_1 = sum([alpha ** n / (factorial(n) * (1 + beta)**k) for n in range(0, k + 1)])
+    res_2 = alpha ** k / (factorial(k) * (1 + beta)**k)
     res_3 = sum([alpha ** s / prod(k, s, beta) for s in range(1, r + 1)])
     res = 1 / (res_1 + res_2 * res_3)
     return res
 
 
 def get_p_n(n, alpha, p_0):
-    return (alpha**n / (factorial(n) * (1 + beta)**n)) * p_0
+    return (alpha**n / factorial(n) * (1 + beta)**n) * p_0
 
 
 def get_p_ks(k, s, alpha, beta, p_0):
@@ -39,10 +40,10 @@ def get_p_ks(k, s, alpha, beta, p_0):
     return res
 
 
-lambda_ = 2.
-mu = .2
-nu = .1
-k = 8
+lambda_ = 5
+mu = 4
+nu = 1
+k = 2
 
 alpha = lambda_ / mu
 beta = nu / mu
@@ -75,9 +76,6 @@ print(f"   Среднее число заказов, находящихся в �
 
 # е) долю ЭВМ, простаивающих в вычислительном центре
 g = k - h
-print(f'check g1 = {g}')
-g = sum([(k - n) * get_p_n(n, alpha, p_0) for n in range(k+1)])
-print(f'check g2 = {g}')
 k_g = g / k
 print(f"E) Доля ЭВМ, простаивающих в вычислительном центре: {k_g}")
 
