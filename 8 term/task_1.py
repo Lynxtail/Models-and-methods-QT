@@ -31,7 +31,7 @@ def get_p_0(k, alpha, beta, r):
 
 
 def get_p_n(n, alpha, p_0):
-    return (alpha**n / factorial(n) * (1 + beta)) * p_0
+    return (alpha**n / factorial(n) * (1 + beta)**n) * p_0
 
 
 def get_p_ks(k, s, alpha, beta, p_0):
