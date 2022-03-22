@@ -1,8 +1,6 @@
 # M/M(k, k)/1
 
 import matplotlib.pyplot as plt
-from pyrsistent import inc
-from sklearn.neighbors import KNeighborsTransformer
 from sympy import solve
 from sympy.abc import x
 
@@ -55,7 +53,7 @@ print('В) Среднее число человек, ожидающих в оч�
 
 # г) вероятность ожидания в очереди 
 p_wait_q = sum([get_p_q(r, k, q) for q in range(1, k)]) + sum([get_p_kn(r, psi, n) for n in range(500)])
-# print(1 - get_p_q(r, k, k - 1))
+p_wait_q = 1 - get_p_q(r, k, k - 1)
 print('Г) Вероятность ожидания в очереди:', p_wait_q)
 
 # д) долю времени, в течение которого аттракцион используется 
